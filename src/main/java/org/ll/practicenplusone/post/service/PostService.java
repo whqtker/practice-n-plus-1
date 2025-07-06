@@ -18,6 +18,16 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public PostListResponse getAllPosts() {
+        // N+1 문제 발생
+        // List<Post> posts = postRepository.findAll();
+
+        // Fetch Join
+        // List<Post> posts = postRepository.findAllWithComments();
+
+        // Entity Graph
+        // List<Post> posts = postRepository.findAll();
+
+        // Batch Size
         List<Post> posts = postRepository.findAll();
 
         List<PostResponse> postResponses = posts.stream()

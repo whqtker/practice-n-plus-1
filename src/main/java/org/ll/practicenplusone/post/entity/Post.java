@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.BatchSize;
 import org.ll.practicenplusone.comment.entity.Comment;
 
 import java.util.ArrayList;
@@ -29,6 +30,8 @@ public class Post {
     @Column(nullable = false)
     private String content;
 
+    // Batch Size
+    @BatchSize(size = 100)
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 
