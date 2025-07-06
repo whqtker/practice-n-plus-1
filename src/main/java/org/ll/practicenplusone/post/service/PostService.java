@@ -1,6 +1,8 @@
 package org.ll.practicenplusone.post.service;
 
 import lombok.RequiredArgsConstructor;
+import org.ll.practicenplusone.post.dto.PostListResponse;
+import org.ll.practicenplusone.post.dto.PostResponse;
 import org.ll.practicenplusone.post.entity.Post;
 import org.ll.practicenplusone.post.repository.PostRepository;
 import org.springframework.stereotype.Service;
@@ -15,8 +17,14 @@ public class PostService {
     private final PostRepository postRepository;
 
     @Transactional(readOnly = true)
-    public List<Post> getAllPosts() {
-        return postRepository.findAll();
+    public PostListResponse getAllPosts() {
+        List<Post> posts = postRepository.findAll();
+
+        List<PostResponse> postResponses = posts.stream()
+                .map(PostResponse::from)
+                .toList();
+
+        return PostListResponse.from(postResponses);
     }
 
     @Transactional
