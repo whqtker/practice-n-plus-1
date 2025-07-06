@@ -7,10 +7,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.ll.practicenplusone.post.entity.Post;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class Comment {
 
     @Id
