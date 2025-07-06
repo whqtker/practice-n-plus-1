@@ -14,7 +14,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> findAllWithComments();
 
     // Entity Graph
-    @Override
     @EntityGraph(attributePaths = {"comments"})
-    List<Post> findAll();
+    List<Post> findAllWithCommentsUsingEntityGraph();
 }

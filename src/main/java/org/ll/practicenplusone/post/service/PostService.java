@@ -25,7 +25,7 @@ public class PostService {
         // List<Post> posts = postRepository.findAllWithComments();
 
         // Entity Graph
-        // List<Post> posts = postRepository.findAll();
+        // List<Post> posts = postRepository.findAllWithCommentsUsingEntityGraph();
 
         // Batch Size
         List<Post> posts = postRepository.findAll();
