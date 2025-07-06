@@ -22,4 +22,9 @@ public class Comment {
 
     @ManyToOne
     private Post post;
+
+    public Comment (Post post, String content) {
+        this.post = post;
+        this.content = content;
+    }
 }

@@ -9,6 +9,7 @@ import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import org.ll.practicenplusone.comment.entity.Comment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,5 +27,10 @@ public class Post {
     private String content;
 
     @OneToMany(mappedBy = "post")
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
+
+    public Post (String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
