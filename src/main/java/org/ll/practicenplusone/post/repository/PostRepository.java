@@ -10,10 +10,11 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, Long> {
 
     // Fetch Join
-    @Query("SELECT DISTINCT p FROM Post p LEFT JOIN FETCH p.comments")
-    List<Post> findAllWithComments();
+//    @Query("SELECT DISTINCT p FROM Post p LEFT JOIN FETCH p.comments")
+//    List<Post> findAllWithComments();
 
     // Entity Graph
-    @EntityGraph(attributePaths = {"comments"})
-    List<Post> findAllWithCommentsUsingEntityGraph();
+//    @Override
+//    @EntityGraph(attributePaths = {"comments"})
+//    List<Post> findAll();
 }
